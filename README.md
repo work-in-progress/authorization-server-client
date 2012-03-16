@@ -16,7 +16,9 @@ authorization server to validate a token. This is the path taken by this module,
 	scopes: ["scope1",...] (An array of scopes)
 	expiresIn: 1234  (number of seconds this token is still valid)
 
+## NOTE
 
+Caching is not yet enabled.
 
 ## Install
 
