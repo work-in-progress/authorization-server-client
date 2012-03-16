@@ -15,11 +15,11 @@ module.exports = class Client
     @cache = {}
     
   validate: (token,cb) => 
-    @.get "#{@endpoint}/#{id}", (err,body, statusCode) =>
+    @.get "#{@endpoint}/#{token}", (err,body, statusCode) =>
       return cb err if err
       
       result =
-        isValid : body.actor && body.actorId && body.expiresIn
+        isValid : !!(body.actor && body.actor.actorId && body.expiresIn)
         actor : body.actor || {}
         expiresIn : body.expiresIn || 0
         scopes : body.scopes || []
@@ -36,13 +36,14 @@ module.exports = class Client
       
       body = null
       
+      console.log "WE ARE HERE #{bodyBeforeJson}"
       if bodyBeforeJson and bodyBeforeJson.length > 0
         try
           body = JSON.parse(bodyBeforeJson)
         catch e
           return callback( new Error("Invalid Body Content"),bodyBeforeJson,res.statusCode)
         
-      return callback(new Error(body.message)) unless res.statusCode >= 200 && res.statusCode < 300
+      return callback(new Error(if body then body.message else "Request failed.")) unless res.statusCode >= 200 && res.statusCode < 300
       callback null, body, res.statusCode
 
   get: (path, callback) =>
