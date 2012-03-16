@@ -33,7 +33,8 @@
     "async" : "0.1.x",
     "should" : "0.6.x",   
     "coffee-script" : "1.2.x", 
-    "mocha": "0.14.x"
+    "mocha": "0.14.x",
+    "nock" : "0.10.x"
   },
   "bugs": { "url": "http://github.com/scottyapp/authorization-server-client/issues" },
   "licenses": [

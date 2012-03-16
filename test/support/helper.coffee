@@ -1,8 +1,10 @@
 fs = require 'fs'
 _ = require 'underscore'
 async = require 'async'
+nock = require 'nock'
 
 class Helper
+  testEndpoint: "http://someservice.com/v1/token-infos"
       
   fixturePath: (fileName) =>
     "#{__dirname}/../fixtures/#{fileName}"
@@ -22,6 +24,14 @@ class Helper
 
 
   setupRequestMock : (cb) =>
+    scope = nock(@testEndpoint)
+                    .filteringPath( (path) -> "goodtoken")
+                    .get('/goodtoken')
+                    .reply(200, 'user')
+                    .filteringPath( (path) -> "badtoken")
+                    .get('/badtoken')
+                    .reply(404)
+                    
     return cb(null) # Stupid cleaner not working, bypassing
       
   start: (obj = {}, done) =>
