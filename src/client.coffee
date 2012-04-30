@@ -36,7 +36,6 @@ module.exports = class Client
       
       body = null
       
-      console.log "WE ARE HERE #{bodyBeforeJson}"
       if bodyBeforeJson and bodyBeforeJson.length > 0
         try
           body = JSON.parse(bodyBeforeJson)
@@ -48,7 +47,7 @@ module.exports = class Client
 
   get: (path, callback) =>
     headers = 
-      'Content-Type': 'application/json'
+      'Accept': 'application/json'
 
     headers['authorization'] = "Bearer #{@options.bearerToken}" if @options.bearerToken
     

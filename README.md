@@ -4,7 +4,7 @@ Client to access an authorization server for oauth2 token validation in a distri
 
 In an oauth2 scenario it is quite likely that your authorization server is not the same as your
 resource server. In this case the resource server needs to be able to validate tokens against the
-authorization server. There are several ways to do this. One is to use public/private key encrypted long token that contain all the relevant information as part of the token. This requires
+authorization server. There are several ways to do this. One is to use public/private key encrypted long token that contains all the relevant information as part of the token. This requires
 sharing keys between authorization server and resource server. While fast this suffers 2 drawbacks: Long tokens and the necessity to work with very short lived tokens.
 
 Another approach is to have the resource server contact the authorization server and ask the 
@@ -72,10 +72,10 @@ and like us on Facebook please. Every mention is welcome and we follow back.
 
 ## Publish new version
 
-* Change version in package.json
-* git tag -a v0.0.1 -m 'version 0.0.1'
+* git tag -a v0.0.3 -m 'version 0.0.3'
 * git push --tags
 * npm publish
+* update version in package.json and here
 
 ## Contributing to authorization-server-client
  

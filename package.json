@@ -2,7 +2,7 @@
   "author": "Martin Wawrusch <martin@wawrusch.com> (http://martinatsunset.com)",
   "name": "authorization-server-client",
   "description": "Client to access an authorization server for oauth2 token validation in a distributed environment.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main" : "lib/index.js",
   "repository": {
     "type": "git",
